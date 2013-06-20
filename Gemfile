@@ -38,6 +38,8 @@ end
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'vcr'
+  gem 'shoulda'
 end
 
 group :development, :test do
