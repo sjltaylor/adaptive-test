@@ -2,6 +2,8 @@ AdaptiveLabTest::Application.routes.draw do
 
   root to: 'landing#index'
 
+  post '/fetch_more_tweets' => 'landing#fetch_more_tweets'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

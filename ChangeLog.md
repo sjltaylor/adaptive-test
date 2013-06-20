@@ -14,3 +14,10 @@ Initial setup for specs (on `master`)
 * create initial database
 * include rspec and testing related gems
 * setup an initial test for the landing page
+
+
+## Step 2
+
+branch: `feature/coke-page`
+
+Implement baseline functionality for tweet retrieval and display

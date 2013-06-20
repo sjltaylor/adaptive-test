@@ -1,1 +1,14 @@
 <h1>All About "Coke"</h1>
+
+<%= button_to "Fetch more tweets",
+  controller: :landing,
+  action: :fetch_more_tweets,
+  method: :post %>
+
+<div class='tweets-list'>
+  <% tweets.each do |tweet| %>
+    <div class='tweet-container'>
+      <%= tweet.message %>
+    </div>
+  <% end %>
+</div>
