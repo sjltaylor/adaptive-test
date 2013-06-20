@@ -1,0 +1,11 @@
+config_example.ymldefaults: &default
+  adaptive_tweets_endpoint: 'http://adaptive-test-api.herokuapp.com/tweets.json'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

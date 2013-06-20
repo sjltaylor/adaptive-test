@@ -9,7 +9,8 @@
 ## Getting Started
 
 * Install postgres if required
-  * setup a `config/database.yml`. A copy of `config/database_example.yml` is a good start.
+  * setup a `config/database.yml`. A copy of `config/database_example.yml` is a good start
+* setup a `config/config.yml`. (see`config/config_example.yml`)
 * bundle && bundle exec rake db:setup db:test:prepare
 * A test run will check everything is working; run `bundle exec rspec` in the project root
 * `bundle exec rails server` to launch the app, assuming port 3000 is available
