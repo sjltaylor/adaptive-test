@@ -7,4 +7,10 @@ class Tweet < ActiveRecord::Base
   validates :sentiment,         presence: true, numericality: { greater_than_or_equal_to: -1.0, less_than_or_equal_to: 1.0 }
   validates :followers,         presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :times_seen,        presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+
+  def mentions_coke?
+    APP_CONFIG['coke_keywords'].any? do |keyword|
+      message =~ /#{keyword}/i
+    end
+  end
 end

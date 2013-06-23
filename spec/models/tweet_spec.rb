@@ -17,4 +17,31 @@ describe Tweet do
     it { should have_db_column(:times_seen).with_options(default: 0) }
     it { should validate_numericality_of(:times_seen).only_integer.is_greater_than_or_equal_to(1) }
   end
+
+  describe '#mentions_coke?' do
+    let(:tweet) { Tweet.new }
+
+    describe 'when the tweet did not mention coke' do
+      it 'returns false' do
+        tweet.message = 'pepsi is not as good'
+        tweet.mentions_coke?.should be_false
+      end
+    end
+
+    context "tweets that mention coke" do
+      [
+        "I like Coke alot",
+        "coke is great",
+        "diet cola is not as good",
+        "get me a diet Cola",
+        "coca-cola is very nice",
+        "my mum does not like COCA-COLA"
+      ].each do |coke_related_message|
+        it "returns true that '#{coke_related_message}' mentioned coke" do
+          tweet.message = coke_related_message
+        tweet.mentions_coke?.should be_true
+        end
+      end
+    end
+  end
 end
