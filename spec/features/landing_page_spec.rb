@@ -25,6 +25,16 @@ feature 'landing page' do
       page.should have_content("message: #{tweet_attrs['message']}")
       page.should have_content("sentiment: #{tweet_attrs['sentiment']}")
     end
+
+    tweets.each do |tweet_container|
+      tweet_container.should have_content('seen: 1 time')
+    end
+
+    fetch_more_tweets
+
+    tweets.each do |tweet_container|
+      tweet_container.should have_content('seen: 2 times')
+    end
   end
 
   scenario 'the api returns an error when fetching tweets' do

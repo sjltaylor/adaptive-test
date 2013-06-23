@@ -17,6 +17,7 @@
       handle: <%= tweet.user_handle %><br>
       message: <%= tweet.message %><br>
       sentiment: <%= tweet.sentiment %><br>
+      seen: <%= pluralize(tweet.times_seen, 'time') %>
     </p>
   <% end %>
 </div>

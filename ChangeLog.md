@@ -40,4 +40,11 @@ The tweet model uses a numericality validation rather than inclusion validation
 
 branch `feature/show-all-tweet-details`
 
-This feature adds details of each tweet to the listings
+Add details of each tweet to the listings
+
+
+## Step 5
+
+branch `feature/show-seen-count`
+
+Show a count of how many times a tweet has been seen from the api

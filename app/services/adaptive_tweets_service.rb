@@ -17,16 +17,23 @@ module AdaptiveTweetsService
     rescue AdaptiveTweetsApi::NotOkay => e
       e.extend ApiError
       raise e
-    end.each do |tweet|
-      remote_id = tweet["id"].to_s
+    end.each do |tweet_attrs|
+      remote_id = tweet_attrs["id"].to_s
 
-      Tweet.where(remote_id: remote_id).first_or_create!(
-        tweet.slice(*TWEET_SLICE_ATTRS).merge(
-          'remote_id'         => tweet['id'].to_s,
-          'remote_created_at' => tweet['created_at'],
-          'remote_updated_at' => tweet['updated_at']
+      tweet = Tweet.find_by_remote_id(remote_id)
+
+      if tweet.nil?
+        tweet = Tweet.new(
+          tweet_attrs.slice(*TWEET_SLICE_ATTRS).merge(
+            'remote_id'         => tweet_attrs['id'].to_s,
+            'remote_created_at' => tweet_attrs['created_at'],
+            'remote_updated_at' => tweet_attrs['updated_at']
+          )
         )
-      )
+      end
+
+      tweet.times_seen += 1
+      tweet.save!
     end
   end
 
