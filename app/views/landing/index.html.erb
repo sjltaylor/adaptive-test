@@ -1,15 +1,15 @@
 <h1>All About "Coke"</h1>
 
-<% if flash[:error].present? %>
-  <div>
-    <%= flash[:error] %>
-  </div>
-<% end %>
-
 <%= button_to "Fetch more tweets",
   controller: :landing,
   action: :fetch_more_tweets,
   method: :post %>
+
+<% if flash[:error].present? %>
+  <p>
+    <%= flash[:error] %>
+  </p>
+<% end %>
 
 <div class="tweets-list">
   <% tweets.each do |tweet| %>
