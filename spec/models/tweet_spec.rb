@@ -8,7 +8,7 @@ describe Tweet do
     it { should validate_presence_of(:remote_updated_at) }
     it { should validate_presence_of(:message) }
     it { should validate_presence_of(:sentiment) }
-    it { should ensure_inclusion_of(:sentiment).in_range(-1.0..1.0) }
+    it { should validate_numericality_of(:sentiment).is_greater_than_or_equal_to(-1.0).is_less_than_or_equal_to(1.0) }
     it { should validate_presence_of(:user_handle) }
     it { should validate_presence_of(:followers) }
     it { should validate_numericality_of(:followers).only_integer.is_greater_than_or_equal_to(0) }
