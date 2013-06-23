@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130623153253) do
+ActiveRecord::Schema.define(version: 20130623204515) do
 
   create_table "tweets", force: true do |t|
     t.integer  "followers"
@@ -25,5 +25,6 @@ ActiveRecord::Schema.define(version: 20130623153253) do
   end
 
   add_index "tweets", ["remote_id"], name: "index_tweets_on_remote_id", unique: true, using: :btree
+  add_index "tweets", ["user_handle"], name: "index_tweets_on_user_handle", using: :btree
 
 end
