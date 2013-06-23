@@ -35,3 +35,9 @@ VCR was dropped in favour of mocking because api responses are non-deterministic
 
 The tweet model uses a numericality validation rather than inclusion validation
 
+
+## Step 4
+
+branch `feature/show-all-tweet-details`
+
+This feature adds details of each tweet to the listings

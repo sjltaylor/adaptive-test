@@ -14,11 +14,17 @@ feature 'landing page' do
   end
 
   scenario 'fetching and listing tweets' do
-    api_mock.fetch_more_tweets.return_two_tweets
+    two_tweet_attrs = api_mock.fetch_more_tweets.return_two_tweets
 
     visit_landing_page
 
     expect{ fetch_more_tweets }.to change{ tweets.count } .from(0).to(2)
+
+    two_tweet_attrs.each do |tweet_attrs|
+      page.should have_content("handle: #{tweet_attrs['user_handle']}")
+      page.should have_content("message: #{tweet_attrs['message']}")
+      page.should have_content("sentiment: #{tweet_attrs['sentiment']}")
+    end
   end
 
   scenario 'the api returns an error when fetching tweets' do

@@ -9,7 +9,9 @@ module AdaptiveTweetsApiMock
     module_function
 
     def return_two_tweets
+      two_tweets = self.two_tweets
       AdaptiveTweetsApi.any_instance.stub(:fetch_more_tweets).and_return(two_tweets)
+      return two_tweets
     end
 
     def raise_not_okay
