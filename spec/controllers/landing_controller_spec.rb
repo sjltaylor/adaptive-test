@@ -8,10 +8,10 @@ describe LandingController do
 
   describe '#index' do
     let(:all_tweets) { stub(:all_tweets) }
-    before(:each) { Tweet.stub(:all).and_return(all_tweets) }
     before(:each) { controller.stub(:render) }
 
-    it 'renders with all tweets' do
+    it 'renders with all tweets in descending order of sentiment' do
+      Tweet.should_receive(:order).with('sentiment DESC').and_return(all_tweets)
       controller.should_receive(:render).with(locals: { tweets: all_tweets })
       get :index
     end

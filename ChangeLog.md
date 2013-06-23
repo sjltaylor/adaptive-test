@@ -59,3 +59,9 @@ Any tweet containing 'coke', 'coca-cola' or 'diet cola' is highlighted in red
 Note: I assumed case-sensitivity wasn't required
 
 
+## Step 7
+
+branch `feature/ordered-tweet-list`
+
+Show tweets ordered by descending sentiment
+

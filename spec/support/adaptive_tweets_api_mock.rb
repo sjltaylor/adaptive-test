@@ -28,7 +28,7 @@ module AdaptiveTweetsApiMock
           "followers" => 24,
           "id" => 3,
           "message" => "Coke is it!",
-          "sentiment" => 1,
+          "sentiment" => -0.5,
           "updated_at" => "2012-09-27T16:11:15Z",
           "user_handle" => "@coke_snortr"
         },
@@ -37,7 +37,7 @@ module AdaptiveTweetsApiMock
           "followers" => 5,
           "id" => 8,
           "message" => "Tweet me your fav drinks #drinks",
-          "sentiment" => 0,
+          "sentiment" => 0.3,
           "updated_at" => "2012-09-27T16:15:06Z",
           "user_handle" => "@drinkies"
         }

@@ -1,6 +1,6 @@
 class LandingController < ApplicationController
   def index
-    render locals: { tweets: Tweet.all }
+    render locals: { tweets: Tweet.order('sentiment DESC') }
   end
   def fetch_more_tweets
     begin

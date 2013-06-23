@@ -40,6 +40,10 @@ feature 'landing page' do
     # one of the tweets should be highlighted
     highlighted_message = page.find(:css, '.tweet-container .about-coke').text
     highlighted_message.should == two_tweet_attrs.first["message"]
+
+    # the tweets should be in order of sentiment
+    tweets.first.should have_content("sentiment: 0.3")
+    tweets.last.should have_content("sentiment: -0.5")
   end
 
   scenario 'the api returns an error when fetching tweets' do
