@@ -13,5 +13,8 @@ describe Tweet do
     it { should validate_presence_of(:followers) }
     it { should validate_numericality_of(:followers).only_integer.is_greater_than_or_equal_to(0) }
     it { should have_db_index(:remote_id) }
+    it { should validate_presence_of(:times_seen) }
+    it { should have_db_column(:times_seen).with_options(default: 0) }
+    it { should validate_numericality_of(:times_seen).only_integer.is_greater_than_or_equal_to(1) }
   end
 end
