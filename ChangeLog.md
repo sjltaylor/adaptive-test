@@ -48,3 +48,14 @@ Add details of each tweet to the listings
 branch `feature/show-seen-count`
 
 Show a count of how many times a tweet has been seen from the api
+
+
+## Step 6
+
+branch `feature/highlight-coke-tweets`
+
+Any tweet containing 'coke', 'coca-cola' or 'diet cola' is highlighted in red
+
+Note: I assumed case-sensitivity wasn't required
+
+

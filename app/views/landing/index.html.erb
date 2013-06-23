@@ -11,13 +11,8 @@
   action: :fetch_more_tweets,
   method: :post %>
 
-<div class='tweets-list'>
+<div class="tweets-list">
   <% tweets.each do |tweet| %>
-    <p class='tweet-container'>
-      handle: <%= tweet.user_handle %><br>
-      message: <%= tweet.message %><br>
-      sentiment: <%= tweet.sentiment %><br>
-      seen: <%= pluralize(tweet.times_seen, 'time') %>
-    </p>
+    <%= render partial: 'tweet', locals: { tweet: tweet } %>
   <% end %>
 </div>

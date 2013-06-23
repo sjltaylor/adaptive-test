@@ -30,11 +30,16 @@ feature 'landing page' do
       tweet_container.should have_content('seen: 1 time')
     end
 
+    # get the same two tweets again
     fetch_more_tweets
 
     tweets.each do |tweet_container|
       tweet_container.should have_content('seen: 2 times')
     end
+
+    # one of the tweets should be highlighted
+    highlighted_message = page.find(:css, '.tweet-container .about-coke').text
+    highlighted_message.should == two_tweet_attrs.first["message"]
   end
 
   scenario 'the api returns an error when fetching tweets' do
