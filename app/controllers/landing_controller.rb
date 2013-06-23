@@ -1,6 +1,12 @@
 class LandingController < ApplicationController
   def index
-    render locals: { tweets: Tweet.order('sentiment DESC') }
+    tweets = if params[:handle]
+      Tweet.from_user(params[:handle])
+    else
+      Tweet.all
+    end
+
+    render locals: { tweets: tweets }
   end
   def fetch_more_tweets
     begin

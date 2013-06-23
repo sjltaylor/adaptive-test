@@ -62,10 +62,15 @@ Notes:
 * I assumed matching hash-tags and not only words was okay
 
 
-
 ## Step 7
 
 branch `feature/ordered-tweet-list`
 
 Show tweets ordered by descending sentiment
 
+
+## Step 8
+
+branch `feature/filter-by-handle`
+
+Show tweets filtered by twitter handle

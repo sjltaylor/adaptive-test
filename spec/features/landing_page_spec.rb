@@ -46,6 +46,29 @@ feature 'landing page' do
     tweets.last.should have_content("sentiment: -0.5")
   end
 
+  scenario 'filtering tweets by twitter handle' do
+    two_tweet_attrs = api_mock.fetch_more_tweets.return_two_tweets
+
+    visit_landing_page
+
+    fetch_more_tweets
+
+    tweets.count.should == 2
+
+    user_handle = two_tweet_attrs.first["user_handle"]
+    click_on user_handle
+
+    tweets.count.should_not be_zero
+    tweets.each do |tweet|
+      tweet.should have_content("handle: #{user_handle}")
+    end
+
+    # go back to the landing page by clicking the home link
+    navigate_home
+
+    tweets.count.should == 2
+  end
+
   scenario 'the api returns an error when fetching tweets' do
     api_mock.fetch_more_tweets.raise_not_okay
 

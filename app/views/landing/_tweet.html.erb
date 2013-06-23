@@ -1,5 +1,5 @@
 <p class="tweet-container">
-  handle: <%= tweet.user_handle %><br>
+  handle: <%= link_to(tweet.user_handle, root_path(handle: tweet.user_handle)) %><br>
   message: <span class="<%= message_class(tweet) %>"><%= tweet.message %></span><br>
   sentiment: <%= tweet.sentiment %><br>
   seen: <%= pluralize(tweet.times_seen, 'time') %>

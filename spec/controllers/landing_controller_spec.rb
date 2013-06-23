@@ -10,10 +10,21 @@ describe LandingController do
     let(:all_tweets) { stub(:all_tweets) }
     before(:each) { controller.stub(:render) }
 
-    it 'renders with all tweets in descending order of sentiment' do
-      Tweet.should_receive(:order).with('sentiment DESC').and_return(all_tweets)
+    it 'renders all tweets' do
+      Tweet.should_receive(:all).and_return(all_tweets)
       controller.should_receive(:render).with(locals: { tweets: all_tweets })
       get :index
+    end
+
+    describe 'with a handle parameter' do
+      let(:handle) { '@happy_user_123' }
+      let(:users_tweets) { stub(:users_tweets) }
+
+      it 'renders all tweets in descending order filtered by handle' do
+        Tweet.should_receive(:from_user).with(handle).and_return(users_tweets)
+        controller.should_receive(:render).with(locals: { tweets: users_tweets })
+        get :index, handle: handle
+      end
     end
   end
 
