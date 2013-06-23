@@ -20,6 +20,13 @@ describe Tweet do
   it { should have_db_index(:remote_id) }
   it { should have_db_index(:user_handle) }
 
+  describe 'default scope' do
+    it 'is ordered by sentiment descending' do
+      Tweet.should_receive(:order).with('sentiment DESC')
+      Tweet.all.to_a # the results must be enumerated because scopes are lazy
+    end
+  end
+
   describe '.from_user' do
     it 'scopes a query to include only the users specified by handle' do
       results     = stub

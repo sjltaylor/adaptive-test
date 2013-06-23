@@ -8,7 +8,8 @@ class Tweet < ActiveRecord::Base
   validates :followers,         presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :times_seen,        presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
-  scope :from_user, ->(handle){where(user_handle: handle)}
+  default_scope ->(){ order('sentiment DESC') }
+  scope :from_user, ->(handle){ where(user_handle: handle) }
 
   def mentions_coke?
     APP_CONFIG['coke_keywords'].any? do |keyword|
