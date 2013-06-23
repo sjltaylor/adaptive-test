@@ -23,9 +23,9 @@ If there are any issues setting these up, I can prepare an ec2 instance for the 
 ## Console Access
 
 Application data and behaviour can be inspected in the rails console.
-Run `rails console` in the application root
+Run `bundle exec rails console` in the application root
 
-For a database client prompt: `rails dbconsole`
+For a database client prompt: `bundle exec rails dbconsole`
 
 
 ## Test Coverage
