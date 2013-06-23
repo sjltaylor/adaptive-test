@@ -34,5 +34,18 @@ describe LandingController do
       service.should_receive(:fetch_more_tweets)
       dispatch
     end
+
+    describe 'when there is an error calling the api' do
+      let(:error) do
+        StandardError.new.tap do |e|
+          e.extend AdaptiveTweetsService::ApiError
+        end
+      end
+      it 'sets a flash message' do
+        service.stub(:fetch_more_tweets).and_raise(error)
+        dispatch
+        flash[:error].should == 'The was a problem fetching more tweets'
+      end
+    end
   end
 end

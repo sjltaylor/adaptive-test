@@ -69,5 +69,14 @@ describe AdaptiveTweetsService do
       end
       service.fetch_more_tweets
     end
+
+    describe 'when the api raises a AdaptiveTweetsApi::NotOkay' do
+      before(:each) do
+        mock_api.stub(:fetch_more_tweets).and_raise(AdaptiveTweetsApi::NotOkay)
+      end
+      it 'raises an ApiError' do
+        expect { service.fetch_more_tweets }.to raise_error(AdaptiveTweetsService::ApiError)
+      end
+    end
   end
 end

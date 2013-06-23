@@ -1,4 +1,5 @@
 class AdaptiveTweetsApi
+  class NotOkay < StandardError; end
   attr_reader :http
 
   def initialize http_library=HTTParty
@@ -6,7 +7,13 @@ class AdaptiveTweetsApi
   end
 
   def fetch_more_tweets
-    http.get(tweets_endpoint)
+    response = http.get(tweets_endpoint)
+
+    if response.code != 200
+      raise NotOkay.new(response)
+    end
+
+    return response
   end
 
   protected

@@ -1,4 +1,6 @@
 module AdaptiveTweetsService
+  module ApiError; end
+
   TWEET_SLICE_ATTRS = [
     'message',
     'followers',
@@ -8,9 +10,14 @@ module AdaptiveTweetsService
 
   extend self
 
+  # will raise an ApiError if the api results in non-200 response
   def fetch_more_tweets
-    tweets = api.fetch_more_tweets
-    tweets.each do |tweet|
+    begin
+      api.fetch_more_tweets
+    rescue AdaptiveTweetsApi::NotOkay => e
+      e.extend ApiError
+      raise e
+    end.each do |tweet|
       remote_id = tweet["id"].to_s
 
       Tweet.where(remote_id: remote_id).first_or_create!(

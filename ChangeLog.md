@@ -1,8 +1,7 @@
 # Change Log
 
-The first commit includes just the `rails new` setup, then there is another commit on master which includes test setup.
-Subsequent commits are made to feature branches which are merged into master when complete, ready for the next step.
-You can see the state of the code of any step by checking out the corresponding branch.
+Steps 1 and 2 are commits to master and establish a baseline setup and implementation.
+Subsequent steps are on feature branches.
 
 
 ## Step 1
@@ -18,6 +17,21 @@ Initial setup for specs (on `master`)
 
 ## Step 2
 
-branch: `feature/coke-page`
+branch: `master`
 
 Implement baseline functionality for tweet retrieval and display
+
+
+## Step 3
+
+branch `feature/handle-api-errors`
+
+It is documented that the "api might fail occaisionally".
+
+The api should raise an exception which can be caught by the controller.
+The controller can use a flash to notify the user.
+
+VCR was dropped in favour of mocking because api responses are non-deterministic
+
+The tweet model uses a numericality validation rather than inclusion validation
+
