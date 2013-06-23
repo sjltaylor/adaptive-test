@@ -56,7 +56,11 @@ branch `feature/highlight-coke-tweets`
 
 Any tweet containing 'coke', 'coca-cola' or 'diet cola' is highlighted in red
 
-Note: I assumed case-sensitivity wasn't required
+Notes:
+
+* I assumed case-sensitivity wasn't required
+* I assumed matching hash-tags and not only words was okay
+
 
 
 ## Step 7

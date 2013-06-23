@@ -15,6 +15,7 @@ module AdaptiveTweetsService
     begin
       api.fetch_more_tweets
     rescue AdaptiveTweetsApi::NotOkay => e
+      # tag and re-raise the exception
       e.extend ApiError
       raise e
     end.each do |tweet_attrs|

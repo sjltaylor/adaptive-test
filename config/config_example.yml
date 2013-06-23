@@ -1,5 +1,9 @@
-config_example.ymldefaults: &default
+defaults: &default
   adaptive_tweets_endpoint: 'http://adaptive-test-api.herokuapp.com/tweets.json'
+  coke_keywords:
+    - 'coke'
+    - 'diet cola'
+    - 'coca-cola'
 
 development:
   <<: *default

@@ -6,6 +6,7 @@ class LandingController < ApplicationController
     begin
       adaptive_tweets.fetch_more_tweets
     rescue AdaptiveTweetsService::ApiError
+      # rescue only api errors, other exceptions should bubble up
       flash[:error] = 'The was a problem fetching more tweets'
     end
     redirect_to :root
