@@ -48,12 +48,12 @@ describe Tweet do
 
     context "tweets that mention coke" do
       [
-        "I like Coke alot",
-        "coke is great",
-        "diet cola is not as good",
-        "get me a diet Cola",
-        "coca-cola is very nice",
-        "my mum does not like COCA-COLA"
+        'I like Coke alot',
+        'coke is great',
+        'diet cola is not as good',
+        'get me a diet Cola',
+        'coca-cola is very nice',
+        'my mum does not like COCA-COLA'
       ].each do |coke_related_message|
         it "returns true that '#{coke_related_message}' mentioned coke" do
           tweet.message = coke_related_message

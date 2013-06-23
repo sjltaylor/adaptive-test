@@ -24,22 +24,22 @@ module AdaptiveTweetsApiMock
     def two_tweets
       [
         {
-          "created_at" => "2012-09-27T16:11:15Z",
-          "followers" => 24,
-          "id" => 3,
-          "message" => "Coke is it!",
-          "sentiment" => -0.5,
-          "updated_at" => "2012-09-27T16:11:15Z",
-          "user_handle" => "@coke_snortr"
+          'created_at' => '2012-09-27T16:11:15Z',
+          'followers' => 24,
+          'id' => 3,
+          'message' => 'Coke is it!',
+          'sentiment' => -0.5,
+          'updated_at' => '2012-09-27T16:11:15Z',
+          'user_handle' => '@coke_snortr'
         },
         {
-          "created_at" => "2012-09-27T16:15:06Z",
-          "followers" => 5,
-          "id" => 8,
-          "message" => "Tweet me your fav drinks #drinks",
-          "sentiment" => 0.3,
-          "updated_at" => "2012-09-27T16:15:06Z",
-          "user_handle" => "@drinkies"
+          'created_at' => '2012-09-27T16:15:06Z',
+          'followers' => 5,
+          'id' => 8,
+          'message' => 'Tweet me your fav drinks #drinks',
+          'sentiment' => 0.3,
+          'updated_at' => '2012-09-27T16:15:06Z',
+          'user_handle' => '@drinkies'
         }
       ]
     end

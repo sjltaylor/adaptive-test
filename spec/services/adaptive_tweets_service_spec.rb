@@ -5,47 +5,47 @@ describe AdaptiveTweetsService do
   let(:mock_api)    { mock(:mock_api) }
   let(:tweet1) do
     {
-      "created_at"=>"2012-09-27T16:09:49Z",
-      "followers"=>2,
-      "id"=>1,
-      "message"=>"I really like diet coke",
-      "sentiment"=>0.7,
-      "updated_at"=>"2012-09-27T16:10:42Z",
-      "user_handle"=>"@coke_lvr"
+      'created_at'=>'2012-09-27T16:09:49Z',
+      'followers'=>2,
+      'id'=>1,
+      'message'=>'I really like diet coke',
+      'sentiment'=>0.7,
+      'updated_at'=>'2012-09-27T16:10:42Z',
+      'user_handle'=>'@coke_lvr'
     }
   end
   let(:tweet2) do
     {
-      "created_at"=>"2012-09-27T16:17:21Z",
-      "followers"=>19,
-      "id"=>12,
-      "message"=>"Pepsi is the new coke",
-      "sentiment"=>0.0,
-      "updated_at"=>"2012-09-27T16:17:21Z",
-      "user_handle"=>"@pepsi"
+      'created_at'=>'2012-09-27T16:17:21Z',
+      'followers'=>19,
+      'id'=>12,
+      'message'=>'Pepsi is the new coke',
+      'sentiment'=>0.0,
+      'updated_at'=>'2012-09-27T16:17:21Z',
+      'user_handle'=>'@pepsi'
     }
   end
   let(:fake_api_response) { [tweet1, tweet2] }
   let(:api_tweet_attributes_1) do
     {
-      "remote_created_at"=>"2012-09-27T16:09:49Z",
-      "followers"=>2,
-      "remote_id"=>"1",
-      "message"=>"I really like diet coke",
-      "sentiment"=>0.7,
-      "remote_updated_at"=>"2012-09-27T16:10:42Z",
-      "user_handle"=>"@coke_lvr"
+      'remote_created_at'=>'2012-09-27T16:09:49Z',
+      'followers'=>2,
+      'remote_id'=>'1',
+      'message'=>'I really like diet coke',
+      'sentiment'=>0.7,
+      'remote_updated_at'=>'2012-09-27T16:10:42Z',
+      'user_handle'=>'@coke_lvr'
     }
   end
   let(:api_tweet_attributes_2) do
     {
-      "remote_created_at"=>"2012-09-27T16:17:21Z",
-      "followers"=>19,
-      "remote_id"=>"12",
-      "message"=>"Pepsi is the new coke",
-      "sentiment"=>0.0,
-      "remote_updated_at"=>"2012-09-27T16:17:21Z",
-      "user_handle"=>"@pepsi"
+      'remote_created_at'=>'2012-09-27T16:17:21Z',
+      'followers'=>19,
+      'remote_id'=>'12',
+      'message'=>'Pepsi is the new coke',
+      'sentiment'=>0.0,
+      'remote_updated_at'=>'2012-09-27T16:17:21Z',
+      'user_handle'=>'@pepsi'
     }
   end
   before(:each) do
@@ -70,7 +70,7 @@ describe AdaptiveTweetsService do
     describe 'when a tweet is a repeat encounter' do
       it 'does not create a new tweet' do
         [api_tweet_attributes_1, api_tweet_attributes_2].each do |attrs|
-          Tweet.stub(:find_by_remote_id).with(attrs["remote_id"]).and_return(tweet_model_instance)
+          Tweet.stub(:find_by_remote_id).with(attrs['remote_id']).and_return(tweet_model_instance)
           Tweet.should_not_receive(:create)
         end
         service.fetch_more_tweets

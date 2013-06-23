@@ -19,7 +19,7 @@ module AdaptiveTweetsService
       e.extend ApiError
       raise e
     end.each do |tweet_attrs|
-      remote_id = tweet_attrs["id"].to_s
+      remote_id = tweet_attrs['id'].to_s
 
       tweet = Tweet.find_by_remote_id(remote_id)
 

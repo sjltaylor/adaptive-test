@@ -39,11 +39,11 @@ feature 'landing page' do
 
     # one of the tweets should be highlighted
     highlighted_message = page.find(:css, '.tweet-container .about-coke').text
-    highlighted_message.should == two_tweet_attrs.first["message"]
+    highlighted_message.should == two_tweet_attrs.first['message']
 
     # the tweets should be in order of sentiment
-    tweets.first.should have_content("sentiment: 0.3")
-    tweets.last.should have_content("sentiment: -0.5")
+    tweets.first.should have_content('sentiment: 0.3')
+    tweets.last.should have_content('sentiment: -0.5')
   end
 
   scenario 'filtering tweets by twitter handle' do
@@ -55,7 +55,7 @@ feature 'landing page' do
 
     tweets.count.should == 2
 
-    user_handle = two_tweet_attrs.first["user_handle"]
+    user_handle = two_tweet_attrs.first['user_handle']
     click_on user_handle
 
     tweets.count.should_not be_zero
