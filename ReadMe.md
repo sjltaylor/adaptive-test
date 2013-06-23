@@ -20,6 +20,13 @@ If there are any issues setting these up, I can prepare an ec2 instance for the 
 * A test run will check everything is working: run `bundle exec rspec` in the project root
 * `bundle exec rails server` to launch the app, assuming port 3000 is available
 
+## Console Access
+
+Application data and behaviour can be inspected in the rails console.
+Run `rails console` in the application root
+
+For a database client prompt: `rails dbconsole`
+
 
 ## Test Coverage
 
